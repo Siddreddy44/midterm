@@ -5,7 +5,8 @@
  */
 package status;
 
-import java.util.Scanner;
+
+import status.Status.Response;
 
 /** This class takes String input from user 
  * and calls method statusDetail to print the 
@@ -16,18 +17,45 @@ import java.util.Scanner;
  * then print the status details. 
  * @author srinivsi 
  */
+
+
 public class Status {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args)
-    {
-    Scanner in =new Scanner(System.in);
-    System.out.println("Enter the user status code (zero,one,two,three) in string");
-    String code = in.next();
-    StausUser t= new StausUser();
-    t.statusDetail(code); 
+    public static void main(String[] args){
+        
+    Response print = Response.One;
+    switch(print)
+        {
+    
+        case Zero:
+            System.out.println("REJECTED");
+        break;
+        
+        case One:
+            System.out.println("PENDING");
+        break;
+        
+        case Two:
+        System.out.println("PROCESSING");
+        break;
+        
+        case Three: 
+            System.out.println("APPROVED");
+        break;
+        }
+    
+    System.out.println(print);
     }
+    
+    enum Response {
+    Zero,
+    One,
+    Two,
+    Three
+  }
+    
     
 }
